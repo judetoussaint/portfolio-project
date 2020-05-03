@@ -1,15 +1,13 @@
-
 <!doctype html>
 <html lang="en">
   <head>
-
     {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Jude Toussaint</title>
+    <title>{{ blog.title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -56,7 +54,7 @@
               <div class="navbar-nav ml-auto" >
                 <a class="nav-item nav-link" href="https://www.linkedin.com/in/jude-toussaint-51334111a/">Linkedin</a>
                 <a class="nav-item nav-link" href="{% static 'Jude Toussaint Wm_resume.pdf'%}">Resume</a>
-                <a class="nav-item nav-link" href="{%url 'allblogs'%}">Blogs</a>
+                <a class="nav-item nav-link active" href="{%url 'allblogs'%}">Blogs</a>
                 
               </div>
             </div>
@@ -65,43 +63,27 @@
 
 <main role="main">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Welcome</h1>
-      <p class="lead text-muted"> My name is Jude Toussaint, and I am a data Enthusiast. I enjoy working with Big Data Technology, Visualization
-        and Machine Learning. I have created this website to showcase a few of my projects. While you're at it, you can take a look at my blogs. Enjoy!!!
-      </p>
-      <p>
-        <a href="mailto:judetoussaint1984@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        
-      </p>
+<section class="jumbotron text-center">
+<div class="container">
 
-      <img src="{% static 'jude_pic.png'%}" height='300' width='400' preserveAspectRatio="xMidYMid slice">
-    </div>
-  </section>
+ <h1 class="text-center pt-3">{{blog.title}}</h1>
+ 
+ <p class="text-center">{{blog.pub_date}}</p>
+ <img class="center" src="{{blog.image.url}}">
+ 
+ <br/>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
+<br/>
+<br/>
+<br/>
 
-      <div class="row">
 
-        {% for job in jobs.all%}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src='{{ job.image.url}}' width="100%" height="225" preserveAspectRatio="xMidYMid slice"></img>
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}.</p>
-              
-            </div>
-          </div>
-        </div>
-        {% endfor%}
-        
 
-        <!-- <img class="card-img-top" src='{{ job.image.url}}' ></img> -->
-      </div>
-    </div>
-  </div>
+<p style="text-align:left">{{blog.body}}</p>
+
+</div>
+
+</section>
 
 </main>
 
